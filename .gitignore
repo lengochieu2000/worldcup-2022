@@ -1,0 +1,5 @@
+**__pycache__
+*.bin
+/data/train.json
+/inference.ipynb
+*.onnx

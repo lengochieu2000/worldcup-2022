@@ -1,0 +1,15 @@
+{
+  "bos_token": "[BOS]",
+  "cls_token": "[CLS]",
+  "do_lower_case": false,
+  "eos_token": "[EOS]",
+  "mask_token": "[MASK]",
+  "name_or_path": "binhquoc/vie-deberta-small",
+  "pad_token": "[PAD]",
+  "sep_token": "[SEP]",
+  "sp_model_kwargs": {},
+  "special_tokens_map_file": "/root/.cache/huggingface/transformers/423d759425088f736b8d0250ed15b43c61a902f755ab79aa13b5a8f6eb182fef.de27e148691aa9d25a1377400b3c8e2c5bacda9e4df4d3cacf9bb66ecdb3d5de",
+  "split_by_punct": false,
+  "tokenizer_class": "DebertaV2Tokenizer",
+  "unk_token": "[UNK]"
+}
