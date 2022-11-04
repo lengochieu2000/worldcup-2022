@@ -4,10 +4,11 @@ import torch
 import onnx
 from transformers import AutoTokenizer
 from scipy.special import softmax
+import json
 
 class InferenceONNX:
     def __init__(self, model_path= 'checkpoints', file_onnx = 'worldcup-model.onnx'):
-        onnx_path = f'{model_path}/worldcup-model.onnx'
+        onnx_path = f'{model_path}/{file_onnx}'
         self.session = ort.InferenceSession(onnx_path,
             providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -90,11 +91,17 @@ class InferenceONNX:
         }
 
 if __name__ == '__main__':
-    batch_text = "ai sẽ vô địch worldcup năm ni"
+    batch_text = ['mai mốt có lịch thi đấu nào không',
+'nói cho mình biết thứ hạng của đội tuyển anh đi maika',
+"đức đang đứng thứ mấy vậy",
+"nga hiện đang có mấy điểm thế",
+"bảng a ai đang dẫn đầu thế",
+"ai đang đứng bét bảng c vậy"]
     # batch_text = ["đội nga đấu với pháp thì ai là người đi tiếp",
     #     'bò đào nha và pháp đá với nhau thế ai đi tiếp',
     #     'cho tớ biết tỉ số anh và thụy điển vào hôm qua',]
     
     onnx_obj = InferenceONNX(model_path = 'checkpoints', file_onnx = 'model.onnx')
     output = onnx_obj.inference(batch_text)
+
     print(output)
